@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year 2025 Party Invitation</title>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes firework {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(20); opacity: 0; }
+        }
+
+        @keyframes slide-in {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1a237e, #4a148c);
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: spin 2s linear infinite;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        .date {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+            fill: currentColor;
+            animation: swing 2s ease-in-out infinite;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        .rsvp-button {
+            background-color: #ffd700;
+            color: #000;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rsvp-button:hover {
+            background-color: #ffeb3b;
+        }
+
+        .rsvp-button .icon {
+            margin-left: 0.5rem;
+        }
+
+        #fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: firework 1s ease-out forwards;
+        }
+
+        .rsvp-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .rsvp-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slide-in 0.5s ease-out;
+        }
+
+        .rsvp-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: fade-in 0.5s ease-out 0.2s both;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            animation: fade-in 0.5s ease-out 0.4s both;
+        }
+
+        .details {
+            margin-bottom: 2rem;
+            animation: fade-in 0.5s ease-out 0.6s both;
+        }
+
+        .details p {
+            margin: 0.5rem 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fade-in 0.5s ease-out 0.8s both;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+        }
+
+        input::placeholder, select::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .submit-btn {
+            background-color: #ffd700;
+            color: #000;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #ffeb3b;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="fireworks"></div>
+        <div class="card">
+            <h1 class="title">New Year 2025 <span class="sparkle">✨</span></h1>
+            <p class="subtitle">Let's Celebrate Together!</p>
+            <div class="date">
+                <svg class="icon" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                    <path d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zm3 8H4v8h16v-8zm-5-6H9v2H7V5H4v4h16V5h-3v2h-2V5zm-9 8h2v2H6v-2zm5 0h2v2h-2v-2zm5 0h2v2h-2v-2z"/>
+                </svg>
+                <span>January 1, 2025</span>
+            </div>
+            <p class="description">Join us for an unforgettable night of music, dance, and joy!</p>
+            <button class="rsvp-button" id="rsvpButton">
+                RSVP Now
+                <svg class="icon" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                    <path d="M18 14.97c0 .83-.67 1.5-1.5 1.5S15 15.8 15 14.97s.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM16 5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-5.75-1.65l-1.41-1.41L2.18 18l1.41 1.41 6.66-6.66zM19 3l-6 6 2 2 7-7V3z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="rsvp-container" id="rsvpContainer">
+        <div class="rsvp-card">
+            <button class="close-btn" id="closeRsvp">&times;</button>
+            <h1 class="rsvp-title">RSVP for New Year 2025</h1>
+            <div class="greeting">Welcome to our celebration!</div>
+            <div class="details">
+                <p><strong>Date:</strong> January 1, 2025</p>
+                <p><strong>Time:</strong> 8:00 PM - 2:00 AM</p>
+                <p><strong>Venue:</strong> Starlight Ballroom, 123 Party Avenue, Celebration City</p>
+            </div>
+            <form action="submit_rsvp.php" method="POST">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <select id="guests" required>
+                    <option value="">Number of Guests</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="10+">More than 10</option>
+                </select>
+                <textarea id="message" placeholder="Any special requests or messages?"></textarea>
+                <button type="submit" class="submit-btn">Confirm RSVP</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = Math.random() * window.innerWidth + 'px';
+            firework.style.top = Math.random() * (window.innerHeight / 2) + 'px';
+            firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            
+            document.getElementById('fireworks').appendChild(firework);
+            
+            setTimeout(() => {
+                firework.remove();
+            }, 1000);
+        }
+
+        function animateFireworks() {
+            setInterval(createFirework, 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            animateFireworks();
+            
+            const rsvpButton = document.getElementById('rsvpButton');
+            const rsvpContainer = document.getElementById('rsvpContainer');
+            const closeRsvp = document.getElementById('closeRsvp');
+            const rsvpForm = document.getElementById('rsvpForm');
+            
+            rsvpButton.addEventListener('click', () => {
+                rsvpContainer.style.display = 'flex';
+            });
+            
+            closeRsvp.addEventListener('click', () => {
+                rsvpContainer.style.display = 'none';
+            });
+            
+            rsvpForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const guests = document.getElementById('guests').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send this data to a server
+                // For this example, we'll just log it and show an alert
+                console.log('RSVP Submission:', { name, email, guests, message });
+                
+                alert(`Thank you, ${name}! Your RSVP has been received. We look forward to celebrating with you!`);
+                
+                // Clear the form and close the RSVP container
+                rsvpForm.reset();
+                rsvpContainer.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+
